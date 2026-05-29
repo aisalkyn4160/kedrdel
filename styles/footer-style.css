@@ -1,0 +1,27 @@
+.footer-bottom{
+    padding: 39px 0;
+    border-top: 1px solid rgba(155, 155, 155, 0.17);
+}
+.footer-bottom .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:rgba(255, 255, 255, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.developer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.developer p{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.copyright span{
+    display: block;
+}
