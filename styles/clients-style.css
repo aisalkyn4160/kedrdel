@@ -136,8 +136,5 @@
     .image-card:hover {
         transform: scale(1.07) translateY(-4px);
     }
-    body {
-        padding: 1rem;
-    }
 }
 

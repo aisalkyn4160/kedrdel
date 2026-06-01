@@ -169,3 +169,19 @@ p {
 .swiper-button-disabled{
 	opacity: .6;
 }
+
+@media (max-width: 1300px) {
+  h2{
+    font-size: 46px;
+  }
+  p{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  h2{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
