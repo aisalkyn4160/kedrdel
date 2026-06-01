@@ -37,7 +37,7 @@
  }
  .production-list{
     padding-left: 32px;
-    margin: 32px 0;
+    margin-bottom: 32px;
  }
   .production-list li{
     font-weight: 400;

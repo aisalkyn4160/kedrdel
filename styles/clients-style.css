@@ -1,0 +1,143 @@
+.clients{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 162px;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+.clients-content{
+    background: #5BAA00;
+    padding: 80px 40px;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.clients-inner{
+    max-width: 648px;
+}
+.clients-subtitle{
+    font-family: "LINE Seed JP", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 10px;
+}
+.clients-title{
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+.clients-text{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.clients-gallery {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    gap: 20px;
+    max-width: 830px;
+    width: 100%;
+    height: 1083px;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: visible;
+}
+
+    
+.gallery-column {
+    height: 100%;
+    flex: 1;
+    overflow: visible;  
+}
+
+.infinite-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    will-change: transform;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+.left-column .infinite-track {
+    animation-name: scrollUp;
+    animation-duration: 28s;
+}        
+        
+.right-column .infinite-track {
+    animation-name: scrollDown;
+    animation-duration: 28s;
+}
+
+ @keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-50%);
+    }
+     100% {
+         transform: translateY(0);
+     }
+}
+
+.image-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 405 / 220;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    z-index: 1;/
+}
+
+.image-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease, filter 0.2s;
+    filter: brightness(0.92) contrast(1.05);
+    backface-visibility: hidden;
+}
+
+.image-card:hover {
+    aspect-ratio: 510/360;
+    z-index: 100;
+    transform: scale(1.28) translateY(-6px) rotate(-10deg);
+    box-shadow: 0px 9px 10.3px 0px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.05), box-shadow 0.2s;
+    background: #FFF;
+    padding: 14px 14px 74px 14px;
+    position: relative;
+    z-index: 101;
+}
+.left-column:has(.image-card:hover) {
+    z-index: 2;
+}
+.image-card:hover img {
+    filter: brightness(1.02) contrast(1.08);
+}
+
+@media (max-width: 780px) {
+    .clients-gallery {
+         gap: 1rem;
+    }
+    .image-card:hover {
+        transform: scale(1.07) translateY(-4px);
+    }
+    body {
+        padding: 1rem;
+    }
+}
+

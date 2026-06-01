@@ -2,6 +2,7 @@
 @import url("banner-style.css");
 @import url("about-style.css");
 @import url("production-style.css");
+@import url("clients-style.css");
 @import url("footer-style.css");
 
 /* Google Fonts */
@@ -137,6 +138,7 @@ h2 {
   font-size: 60px;
   line-height: 100%;
   letter-spacing: -1%;
+  margin-bottom: 32px;
 }
 
 p {
