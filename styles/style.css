@@ -1,106 +1,169 @@
-@import url('header-style.css');
-@import url('banner-style.css');
-@import url('about-style.css');
-@import url('footer-style.css');
+@import url("header-style.css");
+@import url("banner-style.css");
+@import url("about-style.css");
+@import url("production-style.css");
+@import url("footer-style.css");
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&family=Manrope:wght@200..800&display=swap");
 
 /* -------------------------------------------reset-styles------------------------------------------- */
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
-*, *:before, *:after{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-:focus, :active{outline: none;}
-a:focus, a:active{outline: none;}
-
-nav,footer,header,aside{display: block;}
-
-html, body{
-	height: 100%;
-	width: 100%;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
 }
 
-input, button, textarea{font-family: inherit;}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
 
-input::-ms-clear{display:none;}
-button{cursor: pointer;}
-button::-moz-focus-inner{padding: 0;border: 0;}
-a, a:visited{text-decoration: none; color: inherit;}
-a:hover{text-decoration: none;}
-ul li{list-style-type: none;}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
-h1,h2, h3, h4, h5, h6{font-style: inherit;}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: inherit;
+}
 
 /* -------------------------------------------main-styles------------------------------------------- */
 
-html{
-	scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-	font-family: "Manrope", sans-serif;
-	background-color: #fff;
-	color: #222222;
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #fff;
+  color: #222222;
 }
-.no-scroll{
-	overflow: hidden;
+.no-scroll {
+  overflow: hidden;
 }
-.layout{
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-header{
-	flex-shrink: 0;
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-main{
-	flex-grow: 1;
+header {
+  flex-shrink: 0;
 }
 
-footer{
-	background-color: black;
-	flex-shrink: 0;
+main {
+  flex-grow: 1;
 }
 
-.container{
-	max-width: 1710px;
-	margin: 0 auto;
-	padding: 0 15px;
+footer {
+  background-color: black;
+  flex-shrink: 0;
 }
 
-h1{
-	font-family: "LINE Seed JP", sans-serif;
-	font-weight: 700;
-	font-size: 120px;
-	line-height: 90%;
-	letter-spacing: -2px;
-}
-h2{
-	font-family: "LINE Seed JP", sans-serif;
-	font-weight: 400;
-	font-size: 60px;
-	line-height: 100%;
-	letter-spacing: -1%;
+.container {
+  max-width: 1712px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-p{
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 120%;
-	letter-spacing: -0.6px;
+h1 {
+  font-family: "LINE Seed JP", sans-serif;
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 90%;
+  letter-spacing: -2px;
+}
+h2 {
+  font-family: "LINE Seed JP", sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 100%;
+  letter-spacing: -1%;
+}
+
+p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.6px;
+}
+
+.swiper-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.swiper-prev,
+.swiper-next {
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  background-color: #222222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.swiper-button-disabled{
+	opacity: .6;
 }

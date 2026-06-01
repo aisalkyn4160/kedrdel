@@ -36,7 +36,7 @@ banner.addEventListener('mouseleave', () => {
 });
 
 // ------------------------------------------------ About-swiper------------------------------------------------
-    const swiper = new Swiper('.about-swiper .swiper', {
+    const aboutSwiper = new Swiper('.about-swiper .swiper', {
       slidesPerView: 'auto',
       loop: true,
       loopAdditionalSlides: 1,
@@ -46,3 +46,14 @@ banner.addEventListener('mouseleave', () => {
       },
       speed: 1000,
     });
+
+// --------------------------------------------Production-swiper------------------------------------------------
+ const productionSwiper = new Swiper('.production .swiper', {
+      slidesPerView: '1',
+      loop: false,
+      speed: 400,
+      navigation: {
+        nextEl: '.production .swiper-next',
+        prevEl: '.production .swiper-prev',
+      },
+});
