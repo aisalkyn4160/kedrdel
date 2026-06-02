@@ -1,7 +1,8 @@
 //------------------------------------------------ Banner-parallax------------------------------------------------
 const banner = document.querySelector('.banner');
 const bgLayer = document.querySelector('.banner-content');
-const fgLayer = document.querySelector('.banner-animation-img'); // двигаем контейнер, а не img
+const fgLayer = document.querySelector('.banner-animation-img'); 
+const fgLayer2 = document.querySelector('.banner-bottom-img');
 
 // Максимальное смещение при крайних положениях мыши
 const MAX_MOVE_X = 60;   // по горизонтали ±60px
@@ -26,6 +27,7 @@ banner.addEventListener('mousemove', (e) => {
         bgLayer.style.transform = `translate(${moveX * 0.3}px, ${moveY * 0.2}px)`;
         // Для изображения - полная амплитуда
         fgLayer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        fgLayer2.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
 });
 
@@ -33,6 +35,7 @@ banner.addEventListener('mouseleave', () => {
     if (rafId) cancelAnimationFrame(rafId);
     bgLayer.style.transform = 'translate(0, 0)';
     fgLayer.style.transform = 'translate(0, 0)';
+    fgLayer2.style.transform = 'translate(0, 0)';
 });
 
 // ------------------------------------------------ About-swiper------------------------------------------------
