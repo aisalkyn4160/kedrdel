@@ -1,3 +1,6 @@
+.production .swiper-slide{
+  height: auto;
+}
 .production-item{
     width: 100%;
     height: 100%;
@@ -10,6 +13,7 @@
     max-width: 1496px;
     margin: 0 auto;
     padding: 0 16px;
+    height: 100%;
 }
 .production-subtitle{
     font-family: "LINE Seed JP", sans-serif;
@@ -21,11 +25,60 @@
  }
  .production-content{
     min-height: 715px;
-    background: no-repeat center right/cover url('/assets/images/production-item-back.png');
-    padding: 80px;
-    padding-right: 738px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+    /* background: no-repeat center right/cover url('/assets/images/production-item-back.png'); */
+    /* padding-right: 738px; */
+   
+ }
+ .production-text{
+    flex-grow: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 80px;
+    /* max-height: 530px;
+    overflow: auto; */
+    background-color: #F9FAF9;
+    position: relative;
+    z-index: 1;
+ }
+ .production-img{
+    width: 580px;
+    flex-shrink: 0;
+    height: 500px;
+    background: no-repeat center right/contain url('/assets/images/production-decor.png');
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .production-img img{
+    width: 580px;
+    height: 500px;
+    object-fit: cover;
+ }
+ .production-img::after{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#F9FAF9;
+ }
+ .production-img::before{
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#F9FAF9;
  }
  .production-number{
     display: block;
@@ -35,7 +88,11 @@
     text-transform: uppercase;
     margin-bottom: 16px;
  }
+ .production-title{
+    max-width: 646px;
+ }
  .production-list{
+    max-width: 646px;
     padding-left: 32px;
     margin-bottom: 32px;
  }
@@ -59,4 +116,75 @@
   }
   .production-content .swiper-controls{
     margin-top: auto;
+  }
+
+  @media (max-width: 1300px) {
+    .production-list li{
+      font-size: 16px;
+    }
+    .production-list li::before{
+      top: 6px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .production-content{
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .production-text{
+      width: 100%;
+      padding: 32px;
+    }
+    .production-title{
+      max-width: 100%;
+    }
+    .production-list{
+      max-width: 100%;
+    }
+    .production-img::after{
+      top: 0;
+      left: -100%;
+    }
+    .production-img::before{
+      bottom: 0;
+      left: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .production-item{
+      padding: 60px 0 90px;
+    }
+    .production-content{
+      min-height: auto;
+    }
+    .production-text{
+      padding: 20px;
+    }
+    .production-number{
+      font-size: 16px;
+    }
+    .production-list{
+      margin-bottom: 0;
+    }
+    .production-content .swiper-controls{
+      justify-content: center;
+    }
+    .production-img{
+      width: 152px;
+      height: 140px;
+      background-size: 152px 140px;
+    }
+    .production-img::after{
+      width: 200%;
+      left: -304px;
+    }
+    .production-img::before{
+      width: 200%;
+      left: 152px;
+    }
+    .production-content{
+      border-bottom: 10px solid #F9FAF9; 
+    }
   }
