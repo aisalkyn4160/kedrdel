@@ -4,38 +4,68 @@ const bgLayer = document.querySelector('.banner-content');
 const fgLayer = document.querySelector('.banner-animation-img'); 
 const fgLayer2 = document.querySelector('.banner-bottom-img');
 
-// Максимальное смещение при крайних положениях мыши
-const MAX_MOVE_X = 60;   // по горизонтали ±60px
-const MAX_MOVE_Y = 100;  // по вертикали ±100px
+const isMobile = window.innerWidth <= 767 || 'ontouchstart' in window;
+
+const MAX_MOVE_X = isMobile ? 16 : 60;  
+const MAX_MOVE_Y = isMobile ? 20 : 100; 
 
 let rafId = null;
 
-banner.addEventListener('mousemove', (e) => {
+const moveEvent = isMobile ? 'touchmove' : 'mousemove';
+const leaveEvent = isMobile ? 'touchend' : 'mouseleave';
+
+function getCursorPosition(e, rect) {
+    if (isMobile) {
+        const touch = e.touches[0];
+        return {
+            x: (touch.clientX - rect.left) / rect.width,
+            y: (touch.clientY - rect.top) / rect.height
+        };
+    } else {
+        return {
+            x: (e.clientX - rect.left) / rect.width,
+            y: (e.clientY - rect.top) / rect.height
+        };
+    }
+}
+
+banner.addEventListener(moveEvent, (e) => {
+    if (isMobile) e.preventDefault();
+    
     if (rafId) cancelAnimationFrame(rafId);
     rafId = requestAnimationFrame(() => {
         const rect = banner.getBoundingClientRect();
-        // Нормализованные координаты мыши от 0 до 1
-        const mouseX = (e.clientX - rect.left) / rect.width;
-        const mouseY = (e.clientY - rect.top) / rect.height;
-
-        // Смещение: от -MAX до +MAX
-        const moveX = (mouseX - 0.5) * MAX_MOVE_X * 2; // (0-0.5)*120 = -60..+60
-        const moveY = (mouseY - 0.5) * MAX_MOVE_Y * 2; // (0-0.5)*200 = -100..+100
-
-        // Применяем трансформации с разными коэффициентами для слоёв
-        // Для текста (bgLayer) оставляем небольшое движение для акцента
-        bgLayer.style.transform = `translate(${moveX * 0.3}px, ${moveY * 0.2}px)`;
-        // Для изображения - полная амплитуда
+        const { x: mouseX, y: mouseY } = getCursorPosition(e, rect);
+        
+        const bgXFactor = isMobile ? 0.5 : 0.3;
+        const bgYFactor = isMobile ? 0.5 : 0.2;
+        
+        const moveX = (mouseX - 0.5) * MAX_MOVE_X * 2;
+        const moveY = (mouseY - 0.5) * MAX_MOVE_Y * 2;
+        
+        bgLayer.style.transform = `translate(${moveX * bgXFactor}px, ${moveY * bgYFactor}px)`;
         fgLayer.style.transform = `translate(${moveX}px, ${moveY}px)`;
         fgLayer2.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
 });
 
-banner.addEventListener('mouseleave', () => {
+banner.addEventListener(leaveEvent, () => {
     if (rafId) cancelAnimationFrame(rafId);
     bgLayer.style.transform = 'translate(0, 0)';
     fgLayer.style.transform = 'translate(0, 0)';
     fgLayer2.style.transform = 'translate(0, 0)';
+});
+
+if (isMobile) {
+    banner.addEventListener('touchcancel', () => {
+        bgLayer.style.transform = 'translate(0, 0)';
+        fgLayer.style.transform = 'translate(0, 0)';
+        fgLayer2.style.transform = 'translate(0, 0)';
+    });
+}
+
+window.addEventListener('resize', () => {
+    location.reload(); 
 });
 
 // ------------------------------------------------ About-swiper------------------------------------------------

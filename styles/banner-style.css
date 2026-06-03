@@ -30,7 +30,6 @@
     z-index: 2;
     will-change: transform;
     transition: all 0.3s ease;
-    border: 10px solid red;
     background: no-repeat center/cover url('/assets/images/banner-top.png');
 }
 
@@ -52,6 +51,7 @@
     position: relative;
     z-index: 1;
     color: #fff;
+    user-select: none;
 }
 .banner-content h1{
     font-size: clamp(32px, 6vw + 16px, 120px);
@@ -78,5 +78,21 @@
         bottom: -50px;
         height: 155px;
         background-image: url(/assets/images/banner-bottm-mob.png);
+    }
+    .banner-content h1{
+        font-size: 42px;
+    }
+}
+@media (max-width: 576px) {
+    .banner-bottom-img{
+        bottom: -60px;
+    }
+     .banner-content h1{
+        font-size: 32px;
+    }
+
+    .banner-content p{
+        font-size: 16px;
+        font-weight: 400;
     }
 }

@@ -105,20 +105,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-header {
-  flex-shrink: 0;
-}
-
 main {
   flex-grow: 1;
 }
-
-footer {
-  background-color: black;
-  flex-shrink: 0;
-}
-
 .container {
   max-width: 1712px;
   margin: 0 auto;
