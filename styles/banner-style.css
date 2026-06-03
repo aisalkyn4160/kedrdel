@@ -64,6 +64,15 @@
     letter-spacing: -0.6px;
 }
 
+@keyframes windFloatY {
+    0% {
+        transform: translateY(-12px) translateX(-16px);
+    }
+    100% {
+        transform: translateY(12px) translateX(16px);
+    }
+}
+
 @media (max-width: 767px) {
     .banner{
         padding: 188px 0 230px;
@@ -82,6 +91,12 @@
     .banner-content h1{
         font-size: 42px;
     }
+    .banner-animation-img,
+    .banner-bottom-img,
+    .banner-content {
+        transition: animation-duration 0.3s ease;
+    }
+    
 }
 @media (max-width: 576px) {
     .banner-bottom-img{
